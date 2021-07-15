@@ -10,7 +10,8 @@ body{
 }
 
 .rules_box,
-.start_btn{
+.start_btn,
+.quiz_box{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -82,12 +83,95 @@ body{
     cursor: pointer;
     transition: all .03s ease;
 }
-
+.quiz_box header .title:hover,
 .start_btn button:hover,
 .buttons button.restart_btn:hover,
-.buttons button.topScore_btn:hover{
+.buttons button.topScore_btn:hover,
+.quiz_box .answer:hover{
     color: gold;
+    cursor: pointer;
 }
 
+.quiz_box{
+    width: 660px;
+    background: #fff;
+    border-radius: 5px;
+}
 
+.quiz_box header{
+    height: 70px;
+    padding: 0px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+}
 
+.quiz_box header .title{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.quiz_box header .timer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 135px;
+    height: 45px;
+    background: lightblue;
+    border-radius: 5px;
+    padding: 0px 10px;
+}
+
+.quiz_box header .timer .timer_label{
+    font-weight: 300;
+    font-size: 15px;
+    user-select: none;
+}
+.quiz_box header .timer .timer_clock{
+    font-weight: 500;
+    font-size: 18px;
+    background: slateblue;
+    height: 30px;
+    width: 45px;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    user-select: none;
+}
+
+.quiz_box section{
+    padding: 25px 35px;
+    background: #fff;
+}
+.quiz_box section .question_text{
+    font-size: 25px;
+    font-weight: 600;
+}
+.quiz_box section .answer_list{
+    padding: 20px 0;
+    display: block;
+}
+.quiz_box section .answer{
+    background: slateblue;
+    border: 1px solid lightskyblue;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+.quiz_box section .answer_list footer{
+    display: flex;
+    justify-content: flex-end;
+}
+
+footer .next_btn{
+    height:40px;
+    padding: 10px;
+}
