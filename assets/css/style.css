@@ -11,7 +11,8 @@ body{
 
 .rules_box,
 .start_btn,
-.quiz_box{
+.quiz_box,
+.result_box{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -87,13 +88,15 @@ body{
 .start_btn button:hover,
 .buttons button.restart_btn:hover,
 .buttons button.topScore_btn:hover,
-.quiz_box .answer:hover{
+.quiz_box .answer:hover,
+footer .next_btn:hover{
     color: gold;
     cursor: pointer;
 }
 
 .quiz_box{
-    width: 660px;
+    display: none;
+    width: 550px;
     background: #fff;
     border-radius: 5px;
 }
@@ -174,4 +177,69 @@ body{
 footer .next_btn{
     height:40px;
     padding: 10px;
+}
+
+.result_box{
+    width: 550px;
+    background: #fff;
+    border-radius: 5px;
+    display: none;
+}
+
+.result_box header{
+    display: flex;
+    justify-content: space-around;
+    height: 60px;
+    width: 100%;
+    align-items: center;
+    padding: 0 25px;
+}
+
+.result_box header .title{
+    font-size: 20px;
+}
+
+.result_box header .final_score{
+    display: flex;
+    background: slateblue;
+    width: 25%;
+    justify-content: space-between;
+    color: #fff;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid lightskyblue;
+    user-select: none;
+}
+
+.result_box .info_form{
+    padding: 0 25px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}
+
+.result_box .leader_board{
+    padding: 0 25px;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 5px;
+    display:none;
+    margin-bottom: 15px;
+}
+
+.result_box .leader_board .title{
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.result_box .leader_board li{
+    display: flex;
+    justify-content: space-evenly;
+    background: slateblue;
+    border-radius: 5px;
+    padding: 5px 5px;
+    margin-bottom: 15px;
+    color: white;
+    user-select: none;
 }
