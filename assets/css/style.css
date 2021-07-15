@@ -27,9 +27,11 @@ body{
     border-radius: 5px;
     background: lightseagreen;
     cursor: pointer;
+    transition: all .03s ease;
 }
 
 .rules_box{
+    display: none;
     width: 540px;
     background:#fff;
     border-radius: 5px;
@@ -78,6 +80,14 @@ body{
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
+    transition: all .03s ease;
 }
+
+.start_btn button:hover,
+.buttons button.restart_btn:hover,
+.buttons button.topScore_btn:hover{
+    color: gold;
+}
+
 
 
