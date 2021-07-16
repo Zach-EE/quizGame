@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
 body{
@@ -16,27 +16,33 @@ body{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
 }
 
 .start_btn button{
     font-size: 20px;
     font-weight: 500;
-    color: #000;
+    color: #fff;
     padding: 15px 30px;
     outline: none;
     border: none;
     border-radius: 5px;
-    background: lightseagreen;
+    background: slateblue;
     cursor: pointer;
-    transition: all .03s ease;
+    transition: all .03s ease
 }
 
 .rules_box{
-    display: none;
+    opacity:0;
     width: 540px;
     background:#fff;
     border-radius: 5px;
+    z-index: -1;
+
+}
+.rules_box.active{
+    opacity: 1;
+    z-index: 13;
 
 }
 
@@ -49,7 +55,7 @@ body{
     padding: 0 35px;
     padding: 0px 35px;
     font-size: 20px;
-    font-weight: 500px;
+    font-weight: 500px
 }
 
 .rules_box .rules_list{
@@ -59,7 +65,7 @@ body{
 .rules_box .rules_list .rule{
     margin: 5px 0;
     font-size: 18px;
-    color: #000;
+    color: #000
 }
 
 .rules_box .buttons{
@@ -68,7 +74,7 @@ body{
     align-items: center;
     justify-content: flex-end;
     padding: 0px 35px;
-    border-top: 1px solid lightgray;
+    border-top: 1px solid lightgray
 }
 
 .rules_box .buttons button{
@@ -76,29 +82,35 @@ body{
     height: 40px;
     width: 100px;
     border: 1px solid lightseagreen;
-    background: lightseagreen;
+    background: slateblue;
     border-radius: 5px;
     color: #fff;
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
-    transition: all .03s ease;
+    transition: all .03s ease
 }
 .quiz_box header .title:hover,
 .start_btn button:hover,
 .buttons button.restart_btn:hover,
 .buttons button.topScore_btn:hover,
-.quiz_box .answer:hover,
-footer .next_btn:hover{
+.quiz_box button:hover,
+.quiz_box .answer{
     color: gold;
     cursor: pointer;
 }
 
 .quiz_box{
-    display: none;
+    opacity:0;
     width: 550px;
     background: #fff;
     border-radius: 5px;
+    z-index: -1;
+}
+
+.quiz_box.active{
+    opacity: 1;
+    z-index: 13;
 }
 
 .quiz_box header{
@@ -108,12 +120,12 @@ footer .next_btn:hover{
     align-items: center;
     justify-content: space-between;
     border-radius: 5px 5px 0 0;
-    box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+    box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1)
 }
 
 .quiz_box header .title{
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 500
 }
 
 .quiz_box header .timer{
@@ -124,13 +136,13 @@ footer .next_btn:hover{
     height: 45px;
     background: lightblue;
     border-radius: 5px;
-    padding: 0px 10px;
+    padding: 0px 10px
 }
 
 .quiz_box header .timer .timer_label{
     font-weight: 300;
     font-size: 15px;
-    user-select: none;
+    user-select: none
 }
 .quiz_box header .timer .timer_clock{
     font-weight: 500;
@@ -142,20 +154,20 @@ footer .next_btn:hover{
     color: #fff;
     text-align: center;
     line-height: 30px;
-    user-select: none;
+    user-select: none
 }
 
 .quiz_box section{
     padding: 25px 35px;
-    background: #fff;
+    background: #fff
 }
 .quiz_box section .question_text{
     font-size: 25px;
-    font-weight: 600;
+    font-weight: 600
 }
 .quiz_box section .answer_list{
     padding: 20px 0;
-    display: block;
+    display: block
 }
 .quiz_box section .answer{
     background: slateblue;
@@ -167,23 +179,25 @@ footer .next_btn:hover{
     font-size: 18px;
     display: flex;
     align-items: center;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease
 }
 .quiz_box section .answer_list footer{
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end
 }
 
 footer .next_btn{
     height:40px;
-    padding: 10px;
+    padding: 10px
 }
 
 .result_box{
+    user-select: none;
     width: 550px;
     background: #fff;
     border-radius: 5px;
-    display: none;
+    opacity: 0;
+    z-index: -1;
 }
 
 .result_box header{
@@ -192,7 +206,7 @@ footer .next_btn{
     height: 60px;
     width: 100%;
     align-items: center;
-    padding: 0 25px;
+    padding: 0 25px
 }
 
 .result_box header .title{
@@ -208,14 +222,14 @@ footer .next_btn{
     padding: 0 10px;
     border-radius: 5px;
     border: 1px solid lightskyblue;
-    user-select: none;
+    user-select: none
 }
 
 .result_box .info_form{
     padding: 0 25px;
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 30px;
+    margin-bottom: 30px
 }
 
 .result_box .leader_board{
@@ -224,13 +238,13 @@ footer .next_btn{
     height: 100%;
     background: #fff;
     border-radius: 5px;
-    display:none;
-    margin-bottom: 15px;
+    margin-bottom: 15px
 }
 
 .result_box .leader_board .title{
+    text-align: center;
     margin-bottom: 15px;
-    font-size: 18px;
+    font-size: 18px
 }
 
 .result_box .leader_board li{
@@ -241,5 +255,13 @@ footer .next_btn{
     padding: 5px 5px;
     margin-bottom: 15px;
     color: white;
-    user-select: none;
+    user-select: none
 }
+
+.result_box.active,
+.leader_board.active{
+    opacity: 1;
+    z-index: 13;
+    transform: translate(-50%, -50%);
+}
+
