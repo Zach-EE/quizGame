@@ -8,6 +8,7 @@ const answer_el = quiz_box.querySelector(".answer_list");
 const restart_btn = document.querySelector(".restart_btn");
 const result_box = document.querySelector(".result_box");
 const topScore_btn = document.querySelector(".topScore_btn");
+const continue_btn = document.querySelector(".continue_btn")
 
 
 start_btn.onclick = ()=>{
@@ -17,6 +18,11 @@ start_btn.onclick = ()=>{
 }
 
 restart_btn.onclick = ()=>{
+    play_game();
+}
+
+continue_btn.onclick = ()=>{
+    console.log("continue?");
     play_game();
 }
 
@@ -37,7 +43,22 @@ function view_high(){
 
 function play_game(){
     console.log("and another one");
-    rules_box.classList.remove("active");
-    results_box.classList.remove("active");
     quiz_box.classList.add("active");
+    rules_box.classList.remove("active");
+    result_box.classList.remove("active");
+    showQuestion(3);
+}
+
+function showQuestion(index){
+    const question_text = document.querySelector(".question_text");
+    const answer_list = document.querySelector(".answer_list");
+    
+    let que_tag = '<span>'+ questions[index].question + '</span>';
+    let answer_tag = '<div class="answer"><button>'+questions[index].choices[0]+'</button></div>'
+                    + '<div class="answer"><span>'+questions[index].choices[1]+'</span></div>'
+                    + '<div class="answer"><span>'+questions[index].choices[2]+'</span></div>'
+                    + '<div class="answer"><span>'+questions[index].choices[3]+'</span></div>';
+
+    question_text.innerHTML = que_tag;
+    answer_list.innerHTML = answer_tag;
 }
