@@ -167,7 +167,7 @@ body{
 }
 .quiz_box section .answer_list{
     padding: 20px 0;
-    display: block
+    display: block;
 }
 .quiz_box section .answer{
     background: slateblue;
@@ -265,3 +265,9 @@ footer .next_btn{
     transform: translate(-50%, -50%);
 }
 
+.button_def{
+    width: 50%;
+    height: 25%;
+    border-radius: 5px;
+    
+}

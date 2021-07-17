@@ -18,12 +18,12 @@ start_btn.onclick = ()=>{
 }
 
 restart_btn.onclick = ()=>{
-    play_game();
+    playGame();
 }
 
 continue_btn.onclick = ()=>{
     console.log("continue?");
-    play_game();
+    playGame();
 }
 
 answer_el.onclick = ()=>{
@@ -32,32 +32,48 @@ answer_el.onclick = ()=>{
 }
 
 topScore_btn.onclick = ()=>{
-    view_high();
+    viewHigh();
 }
 
-function view_high(){
+function viewHigh(){
     rules_box.classList.remove("active");
     quiz_box.classList.remove("active");
     result_box.classList.add("active")
 }
 
-function play_game(){
+function playGame(){
     console.log("and another one");
     quiz_box.classList.add("active");
     rules_box.classList.remove("active");
     result_box.classList.remove("active");
-    showQuestion(3);
+    showQuestion();
 }
+
+let question_count = 0;
+
+answer_el.onclick = ()=>{
+    if(question_count < questions.length - 1){
+        question_count++;
+        showQuestion(question_count);
+    }else{
+        console.log("Quiz Finished!!!");
+        viewHigh();  
+        question_count = 0; 
+    }
+
+}
+
 
 function showQuestion(index){
     const question_text = document.querySelector(".question_text");
     const answer_list = document.querySelector(".answer_list");
-    
-    let que_tag = '<span>'+ questions[index].question + '</span>';
-    let answer_tag = '<div class="answer"><button>'+questions[index].choices[0]+'</button></div>'
-                    + '<div class="answer"><span>'+questions[index].choices[1]+'</span></div>'
-                    + '<div class="answer"><span>'+questions[index].choices[2]+'</span></div>'
-                    + '<div class="answer"><span>'+questions[index].choices[3]+'</span></div>';
+
+    // todo: look up object set attribute addition
+    let que_tag = '<span>'+ questions[index].number + questions[index].question + '</span>';
+    let answer_tag = '<button class="answer button_def" id="one" ><span>'+questions[index].choices[0]+'</span></button>'
+                    + '<button class="answer button_def" id="one" ><span>'+questions[index].choices[1]+'</span></button>'
+                    + '<button class="answer button_def" id="one" ><span>'+questions[index].choices[2]+'</span></button>'
+                    + '<button class="answer button_def" id="one" ><span>'+questions[index].choices[3]+'</span></button>';
 
     question_text.innerHTML = que_tag;
     answer_list.innerHTML = answer_tag;
