@@ -19,6 +19,15 @@ body{
     transform: translate(-50%, -50%)
 }
 
+.rules_box.activeRules,
+.quiz_box.activeQuiz,
+.result_box.activeResults{
+    opacity: 1;
+    z-index: 13;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
 .start_btn button{
     font-size: 20px;
     font-weight: 500;
