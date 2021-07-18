@@ -3,9 +3,8 @@ console.log("loaded");
 // getting elements
 const start_btn = document.querySelector(".start_btn button");
 const rules_box = document.querySelector(".rules_box");
-const exit_btn = rules_box.querySelector(".buttons .quit");
-const exit_btn = rules_box.querySelector(".buttons .quit");
-const continue_btn = rules_box.querySelector(".buttons .continue");
+const quit_btn = rules_box.querySelector(".buttons .quit_btn");
+const continue_btn = rules_box.querySelector(".buttons .continue_btn");
 const quiz_box = document.querySelector(".quiz_box");
 const result_box = document.querySelector(".result_box");
 const answer_list = document.querySelector(".answer_list");
@@ -17,6 +16,11 @@ const timeCounter = document.querySelector(".timer .timer_counter");
 start_btn.onclick = ()=>{
     console.log("start btn clicked");
     rules_box.classList.add("activeRules");
+}
+
+quit_btn.onclick = ()=>{
+    console.log("quit btn clicked...loser");
+    rules_box.classList.remove("activeRules");
 }
 
 // restart_btn.onclick = ()=>{
