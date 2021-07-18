@@ -274,7 +274,7 @@ footer .next_btn{
     transform: translate(-50%, -50%);
 }
 
-.button_def{
+.answer_list button{
     width: 50%;
     height: 25%;
     border-radius: 5px;

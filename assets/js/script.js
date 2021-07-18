@@ -9,8 +9,8 @@ const quiz_box = document.querySelector(".quiz_box");
 const result_box = document.querySelector(".result_box");
 const answer_list = document.querySelector(".answer_list");
 const time_visual = document.querySelector(".header .time_visual");
-const timeLabel = document.querySelector(".timer .timer_label");
-const timeCounter = document.querySelector(".timer .timer_counter");
+const timerLabel = document.querySelector(".timer .timer_label");
+const timerClock = document.querySelector(".timer .timer_clock");
 
 
 start_btn.onclick = ()=>{
@@ -23,14 +23,19 @@ quit_btn.onclick = ()=>{
     rules_box.classList.remove("activeRules");
 }
 
+continue_btn.onclick = ()=>{
+    console.log("continue?");
+    rules_box.classList.remove("activeRules");
+    quiz_box.classList.add("activeQuiz");
+    showQuestion(0); //prints Q-1 an answers from questions.js to quiz box
+    startTimer(69);
+}
+
 // restart_btn.onclick = ()=>{
 //     playGame();
 // }
 
-// continue_btn.onclick = ()=>{
-//     console.log("continue?");
-//     playGame();
-// }
+
 
 // answer_el.onclick = ()=>{
 //     console.log("whoop whoop whoop");
@@ -70,17 +75,34 @@ quit_btn.onclick = ()=>{
 // }
 
 
-// function showQuestion(index){
-//     const question_text = document.querySelector(".question_text");
-//     const answer_list = document.querySelector(".answer_list");
+function showQuestion(index){
+    const question_text = document.querySelector(".question_text");
+    const answer_list = document.querySelector(".answer_list");
 
-//     // todo: look up object set attribute addition
-//     let que_tag = '<span>'+ questions[index].number + questions[index].question + '</span>';
-//     let answer_tag = '<button class="answer button_def" id="one" ><span>'+questions[index].choices[0]+'</span></button>'
-//                     + '<button class="answer button_def" id="one" ><span>'+questions[index].choices[1]+'</span></button>'
-//                     + '<button class="answer button_def" id="one" ><span>'+questions[index].choices[2]+'</span></button>'
-//                     + '<button class="answer button_def" id="one" ><span>'+questions[index].choices[3]+'</span></button>';
+    // todo: look up object set attribute addition
+    // Prints Question an Answer to DOM
+    let que_tag = '<span>'+ questions[index].number + questions[index].question + '</span>';
+    let answer_tag = '<button class="answer" id="one"><span>'+questions[index].choices[0]+'</span></button>'
+                    + '<button class="answer" id="one"><span>'+questions[index].choices[1]+'</span></button>'
+                    + '<button class="answer" id="one"><span>'+questions[index].choices[2]+'</span></button>'
+                    + '<button class="answer" id="one"><span>'+questions[index].choices[3]+'</span></button>';
 
-//     question_text.innerHTML = que_tag;
-//     answer_list.innerHTML = answer_tag;
-// }
+    question_text.innerHTML = que_tag;
+    answer_list.innerHTML = answer_tag;
+}
+
+function startTimer(time){
+    counter = setInterval(timer, 1000);
+    function timer(){
+        timerClock.textContent = time;
+        time--;
+        //Add zero when counter is in single digits
+        if(time < 9){
+            let addZero = timeCounter.textContent;
+            timerClock.textContent = "0" + addZero;
+        }
+        if(time<0){
+            console.log("game over my dude")
+        }
+    }
+}
