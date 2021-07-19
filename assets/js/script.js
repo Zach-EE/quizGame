@@ -43,7 +43,7 @@ continue_btn.onclick = ()=>{
 
 let question_count = 0;
 
-answer_list.onclick = ()=>{
+function nextQuestion(){
     console.log("clicked answer_list");
     if(question_count < questions.length - 1){
         question_count++;
@@ -53,7 +53,7 @@ answer_list.onclick = ()=>{
         viewHigh();  
         question_count = 0; 
     }
-    console.log(answer.item().textContent);
+    console.log(answer.item.textContent);
 }
 
 
@@ -64,10 +64,10 @@ function showQuestion(index){
     // todo: look up object set attribute addition
     // Prints Question an Answer to DOM
     let que_tag = '<span>'+ questions[index].number + questions[index].question + '</span>';
-    let answer_tag = '<button class="answer" id="one">'+questions[index].choices[0]+'</button>'
-                    + '<button class="answer" id="two"><span>'+questions[index].choices[1]+'</span></button>'
-                    + '<button class="answer" id="three"><span>'+questions[index].choices[2]+'</span></button>'
-                    + '<button class="answer" id="four"><span>'+questions[index].choices[3]+'</span></button>';
+    let answer_tag = '<button class="answer" onclick="nextQuestion()">'+questions[index].choices[0]+'</button>'
+                    + '<button class="answer" onclick="nextQuestion()"><span>'+questions[index].choices[1]+'</span></button>'
+                    + '<button class="answer" onclick="nextQuestion()"><span>'+questions[index].choices[2]+'</span></button>'
+                    + '<button class="answer" onclick="nextQuestion()"><span>'+questions[index].choices[3]+'</span></button>';
 
     question_text.innerHTML = que_tag;
     answer_list.innerHTML = answer_tag;
