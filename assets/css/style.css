@@ -278,5 +278,5 @@ footer .next_btn{
     width: 50%;
     height: 25%;
     border-radius: 5px;
-    
+    z-index: 14;
 }

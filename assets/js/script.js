@@ -11,7 +11,7 @@ const answer_list = document.querySelector(".answer_list");
 const time_visual = document.querySelector(".header .time_visual");
 const timerLabel = document.querySelector(".timer .timer_label");
 const timerClock = document.querySelector(".timer .timer_clock");
-
+const answer = document.getElementsByClassName("answer");
 
 start_btn.onclick = ()=>{
     console.log("start btn clicked");
@@ -60,35 +60,51 @@ continue_btn.onclick = ()=>{
 //     showQuestion();
 // }
 
-// let question_count = 0;
+let question_count = 0;
 
-// answer_el.onclick = ()=>{
-//     if(question_count < questions.length - 1){
-//         question_count++;
-//         showQuestion(question_count);
-//     }else{
-//         console.log("Quiz Finished!!!");
-//         viewHigh();  
-//         question_count = 0; 
-//     }
-
-// }
+answer_list.onclick = ()=>{
+    console.log("clicked answer_list");
+    if(question_count < questions.length - 1){
+        question_count++;
+        showQuestion(question_count);
+    }else{
+        console.log("Quiz Finished!!!");
+        viewHigh();  
+        question_count = 0; 
+    }
+    console.log(answer.item().textContent);
+}
 
 
 function showQuestion(index){
     const question_text = document.querySelector(".question_text");
-    const answer_list = document.querySelector(".answer_list");
+
 
     // todo: look up object set attribute addition
     // Prints Question an Answer to DOM
     let que_tag = '<span>'+ questions[index].number + questions[index].question + '</span>';
-    let answer_tag = '<button class="answer" id="one"><span>'+questions[index].choices[0]+'</span></button>'
-                    + '<button class="answer" id="one"><span>'+questions[index].choices[1]+'</span></button>'
-                    + '<button class="answer" id="one"><span>'+questions[index].choices[2]+'</span></button>'
-                    + '<button class="answer" id="one"><span>'+questions[index].choices[3]+'</span></button>';
+    let answer_tag = '<button class="answer" id="one">'+questions[index].choices[0]+'</button>'
+                    + '<button class="answer" id="two"><span>'+questions[index].choices[1]+'</span></button>'
+                    + '<button class="answer" id="three"><span>'+questions[index].choices[2]+'</span></button>'
+                    + '<button class="answer" id="four"><span>'+questions[index].choices[3]+'</span></button>';
 
     question_text.innerHTML = que_tag;
     answer_list.innerHTML = answer_tag;
+
+    
+    if (answer.length>=1){
+        let ansOne = answer.item(0).textContent;
+        console.log(answer.item(0).textContent);
+
+        let ansTwo = answer.item(1).textContent;
+        console.log(answer.item(1).textContent);
+
+        let ansThree = answer.item(2).textContent;
+        console.log(answer.item(2).textContent);
+
+        let ansFour = answer.item(3).textContent;
+        console.log(answer.item(3).textContent);
+    }
 }
 
 function startTimer(time){
@@ -98,11 +114,19 @@ function startTimer(time){
         time--;
         //Add zero when counter is in single digits
         if(time < 9){
-            let addZero = timeCounter.textContent;
+            let addZero = timerClock.textContent;
             timerClock.textContent = "0" + addZero;
         }
         if(time<0){
             console.log("game over my dude")
+            time = "0";
         }
     }
 }
+
+function userChoice(answer){
+    let userAns = answer.textContent;
+    console.log(userAns);
+}
+
+
