@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script defer src="./assets/js/script.js"></script>
+    <script defer src="./assets/js/questions.js"></script>
+    <title>Quiz Game</title>
+</head>
+<body>
+    <div class="start_btn"><button>Take Quiz!</button></div>
+
+    <!--Start-Menu Box-->
+    <div class="rules_box">
+        <div class="rules_title"><span>The Rules of Play</span></div>
+        <div class="rules_list">
+            <div class="rule">1. Don't Talk About Fight Club</div>
+            <div class="rule">2. Don't Talk About Fight Club</div>
+            <div class="rule">3. Don't Talk about Fight Club</div>
+        </div>
+        <div class="buttons">
+            <button class="quit_btn">Quit?</button>
+            <button class="continue_btn">Continue</button>
+        </div>
+    </div>
+
+    <!-- Quiz Box -->
+    <div class="quiz_box">
+        <header>
+            <div class="title">View HighScore</div>
+            <div class="timer">
+                <div class="timer_label">Time Left:</div>
+                <div class="timer_clock">;-)</div>
+            </div>
+        </header>
+
+        <section>
+            <div class="question_text">
+                <!-- Populated with Question text -->
+            </div>
+            <div class="answer_list">
+                <!-- Populated with answer options -->
+            </div>
+        </section>
+        <footer>
+            <button class="next_btn">Skip Question</button>
+        </footer>
+    </div>
+
+    <!-- Results & LeaderBoard Box -->
+    <div class="result_box">
+        <header>
+            <div class="title">Thanks For Playing!</div>
+            <div class="final_score">
+                <div class="score_text">Final Score:
+                </div>
+                <div class="score_value">
+                    <span>69</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="info_form">
+            <div class="input_name">
+                <input type="text" name="player_name" id="player_name" maxlength="8" minlength="3" placeholder="Enter Name or Initials">
+            </div>
+            <button type="submit">Submit</button>
+        </div>
+        
+        <div class="leader_board">
+            <div class="title">All Time High Scores:</div>
+            <div class="leader_list">
+                <ol>
+                    <li>
+                        <div class="player_name">
+                            <span>Future_Dadbod</span>
+                        </div>
+                        <div class="player_score">
+                            <span>50</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="player_name">
+                            <span>Present_Dadbod</span>
+                        </div>
+                        <div class="player_score">
+                            <span>69</span>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <button class="continue_btn">Play Again?</button>
+        </div>
+
+    </div>
+</body>
+</html>
