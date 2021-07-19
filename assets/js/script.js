@@ -31,17 +31,6 @@ continue_btn.onclick = ()=>{
     startTimer(69);
 }
 
-// restart_btn.onclick = ()=>{
-//     playGame();
-// }
-
-
-
-// answer_el.onclick = ()=>{
-//     console.log("whoop whoop whoop");
-//     console.log (answer);
-// }
-
 // topScore_btn.onclick = ()=>{
 //     viewHigh();
 // }
@@ -50,14 +39,6 @@ continue_btn.onclick = ()=>{
 //     rules_box.classList.remove("active");
 //     quiz_box.classList.remove("active");
 //     result_box.classList.add("active")
-// }
-
-// function playGame(){
-//     console.log("and another one");
-//     quiz_box.classList.add("active");
-//     rules_box.classList.remove("active");
-//     result_box.classList.remove("active");
-//     showQuestion();
 // }
 
 let question_count = 0;
