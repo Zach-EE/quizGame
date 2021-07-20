@@ -36,7 +36,7 @@ let questions = [
     },
     {
         number: 4,
-        question: ". tring values must be enclosed within ___ when being assigned to variables.",
+        question: ". String values must be enclosed within ___ when being assigned to variables.",
         answer: "quotes",
         choices: [
             "commas",

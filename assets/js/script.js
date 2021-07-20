@@ -28,7 +28,7 @@ continue_btn.onclick = ()=>{
     rules_box.classList.remove("activeRules");
     quiz_box.classList.add("activeQuiz");
     showQuestion(0); //prints Q-1 an answers from questions.js to quiz box
-    startTimer(69);
+    startTimer(30);
 }
 
 // topScore_btn.onclick = ()=>{
@@ -41,19 +41,29 @@ continue_btn.onclick = ()=>{
 //     result_box.classList.add("active")
 // }
 
-let question_count = 0;
+var question_count = 0;
 
-function nextQuestion(){
-    console.log("clicked answer_list");
+function nextQuestion(answer){
+    // var correct = questions[question_count].answer;
+    var x = answer.value;
+    var numRight = 0;
+
+    if (x !== questions[question_count].answer){
+        console.log(x +" is wrong");
+    }else{
+        console.log(x +" is right");
+        numRight++;
+    }
+    console.log("answer: " +questions[question_count].answer);
     if(question_count < questions.length - 1){
         question_count++;
         showQuestion(question_count);
     }else{
         console.log("Quiz Finished!!!");
-        viewHigh();  
+        gameOver(numRight);  
         question_count = 0; 
     }
-    console.log(this.textContent);
+
 }
 
 
@@ -64,28 +74,28 @@ function showQuestion(index){
     // todo: look up object set attribute addition
     // Prints Question an Answer to DOM
     let que_tag = '<span>'+ questions[index].number + questions[index].question + '</span>';
-    let answer_tag = '<button class="answer" onclick="nextQuestion()" value="'+questions[index].choices[0]+'"><span>'+questions[index].choices[0]+'</span></button>'
-                    + '<button class="answer" onclick="nextQuestion()value="'+questions[index].choices[1]+'"><span>'+questions[index].choices[1]+'</span></button>'
-                    + '<button class="answer" onclick="nextQuestion()"value="'+questions[index].choices[2]'"><span>'+questions[index].choices[2]+'</span></button>'
-                    + '<button class="answer" onclick="nextQuestion()"value="'+questions[index].choices[3]+'"><span>'+questions[index].choices[3]+'</span></button>';
+    let answer_tag = '<input class="answer" onclick="nextQuestion(this)" value="'+questions[index].choices[0]+'"></input>'
+                    + '<input class="answer" onclick="nextQuestion(this)" value="'+questions[index].choices[1]+'"></input>'
+                    + '<input class="answer" onclick="nextQuestion(this)" value="'+questions[index].choices[2]+'"></input>'
+                    + '<input class="answer" onclick="nextQuestion(this)" value="'+questions[index].choices[3]+'"></input>'
 
     question_text.innerHTML = que_tag;
     answer_list.innerHTML = answer_tag;
 
     
-    if (answer.length>=1){
-        let ansOne = answer.item(0).textContent;
-        console.log(answer.item(0).textContent);
+    // if (answer.length>=1){
+    //     let ansOne = answer.value;
+    //     console.log(ansOne);
 
-        let ansTwo = answer.item(1).textContent;
-        console.log(answer.item(1).textContent);
+    //     let ansTwo = answer.item(1).textContent;
+    //     console.log(answer.item(1).textContent);
 
-        let ansThree = answer.item(2).textContent;
-        console.log(answer.item(2).textContent);
+    //     let ansThree = answer.item(2).textContent;
+    //     console.log(answer.item(2).textContent);
 
-        let ansFour = answer.item(3).textContent;
-        console.log(answer.item(3).textContent);
-    }
+    //     let ansFour = answer.item(3).textContent;
+    //     console.log(answer.item(3).textContent);
+    // }
 }
 
 function startTimer(time){
@@ -99,15 +109,22 @@ function startTimer(time){
             timerClock.textContent = "0" + addZero;
         }
         if(time<0){
-            console.log("game over my dude")
             time = "0";
+            counter = "";
         }
-    }
+    }gameOver(0)
+    
 }
 
-function userChoice(answer){
-    let userAns = answer.textContent;
-    console.log(userAns);
+function gameOver(userScore){
+    var scoreFinal = document.getElementById("endScore");
+    scoreFinal.innerHTML = userScore;
+    alert("You got "+userScore+" Right");
+    result_box.classList.add("activeResults");
+    quiz_box.classList.remove("activeQuiz");
+
+    
+
 }
 
 
