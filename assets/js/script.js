@@ -42,16 +42,6 @@ continue_btn.onclick = ()=>{
     startTimer(15);
 }
 
-// topScore_btn.onclick = ()=>{
-//     viewHigh();
-// }
-
-// function viewHigh(){
-//     rules_box.classList.remove("active");
-//     quiz_box.classList.remove("active");
-//     result_box.classList.add("active")
-// }
-
 var question_count = 0;
 var numRight = 0;
 
@@ -83,8 +73,6 @@ function nextQuestion(answer){
 
 function showQuestion(index){
     const question_text = document.querySelector(".question_text");
-
-
     // todo: look up object set attribute addition
     // Prints Question an Answer to DOM
     let que_tag = '<span>'+ questions[index].number + questions[index].question + '</span>';
@@ -95,21 +83,6 @@ function showQuestion(index){
 
     question_text.innerHTML = que_tag;
     answer_list.innerHTML = answer_tag;
-
-    
-    // if (answer.length>=1){
-    //     let ansOne = answer.value;
-    //     console.log(ansOne);
-
-    //     let ansTwo = answer.item(1).textContent;
-    //     console.log(answer.item(1).textContent);
-
-    //     let ansThree = answer.item(2).textContent;
-    //     console.log(answer.item(2).textContent);
-
-    //     let ansFour = answer.item(3).textContent;
-    //     console.log(answer.item(3).textContent);
-    // }
 }
 
 function startTimer(time, numRight){
