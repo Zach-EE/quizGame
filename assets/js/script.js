@@ -12,6 +12,17 @@ const time_visual = document.querySelector(".header .time_visual");
 const timerLabel = document.querySelector(".timer .timer_label");
 const timerClock = document.querySelector(".timer .timer_clock");
 const answer = document.getElementsByClassName("answer");
+const playAgain_btn = document.querySelector(".playAgain_btn");
+
+
+playAgain_btn.onclick = ()=>{
+    console.log("start btn clicked");
+    question_count = 0;
+    numRight = 0;
+    rules_box.classList.add("activeRules");
+    result_box.classList.remove("activeResults");
+
+}
 
 start_btn.onclick = ()=>{
     console.log("start btn clicked");
@@ -28,7 +39,7 @@ continue_btn.onclick = ()=>{
     rules_box.classList.remove("activeRules");
     quiz_box.classList.add("activeQuiz");
     showQuestion(0); //prints Q-1 an answers from questions.js to quiz box
-    startTimer(30);
+    startTimer(15);
 }
 
 // topScore_btn.onclick = ()=>{
@@ -42,17 +53,20 @@ continue_btn.onclick = ()=>{
 // }
 
 var question_count = 0;
+var numRight = 0;
 
 function nextQuestion(answer){
     // var correct = questions[question_count].answer;
     var x = answer.value;
-    var numRight = 0;
+    
 
-    if (x !== questions[question_count].answer){
-        console.log(x +" is wrong");
-    }else{
+    if (x === questions[question_count].answer){
         console.log(x +" is right");
         numRight++;
+        console.log(numRight);
+    }else{
+        console.log(x +" is wrong");
+        console.log(numRight);
     }
     console.log("answer: " +questions[question_count].answer);
     if(question_count < questions.length - 1){
@@ -60,7 +74,7 @@ function nextQuestion(answer){
         showQuestion(question_count);
     }else{
         console.log("Quiz Finished!!!");
-        gameOver(numRight);  
+        gameOver(timerClock.textContent, numRight);  
         question_count = 0; 
     }
 
@@ -98,33 +112,42 @@ function showQuestion(index){
     // }
 }
 
-function startTimer(time){
+function startTimer(time, numRight){
+
     counter = setInterval(timer, 1000);
     function timer(){
-        timerClock.textContent = time;
-        time--;
+        if(time >=0){
+            timerClock.textContent = time;
+            time--;
+        }
+
         //Add zero when counter is in single digits
-        if(time < 9){
+        if(time < 9 && time > 0){
             let addZero = timerClock.textContent;
             timerClock.textContent = "0" + addZero;
         }
-        if(time<0){
-            time = "0";
-            counter = "";
-        }
-    }gameOver(0)
-    
+        // if(time === 0 && question_count < 4){
+        //     time=0;
+        //     gameOver(time,numRight);
+        // }
+    }
 }
 
-function gameOver(userScore){
-    var scoreFinal = document.getElementById("endScore");
-    scoreFinal.innerHTML = userScore;
-    alert("You got "+userScore+" Right");
-    result_box.classList.add("activeResults");
-    quiz_box.classList.remove("activeQuiz");
-
-    
-
+function gameOver(time, userScore){
+    var scoreFinal_tag = document.getElementById("endScore");
+    var scoreFinal = "";
+    if (time === 0 && question_count < 4){
+        scoreFinal_tag.innerHTML = userScore;
+        alert("Time Expired YOU GET NOTHING");
+        result_box.classList.add("activeResults");
+        quiz_box.classList.remove("activeQuiz");
+    }else{
+        scoreFinal = time * userScore;
+        scoreFinal_tag.innerHTML = scoreFinal;
+        alert("You got "+userScore+" Right");
+        result_box.classList.add("activeResults");
+        quiz_box.classList.remove("activeQuiz");     
+    }
 }
 
 

@@ -53,7 +53,7 @@ let questions = [
             "JavaScript",
             "terminal/ bash",
             "for loops",
-            "console log"
+            "console.log"
         ]
     }
     /* 
